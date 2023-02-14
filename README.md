@@ -8,10 +8,9 @@ Take a look at the following papers for an idea of what kinds of things can be d
 
 Clone oxDNA from the Github, follow the instructions in the installation section of the documentation (with Python bindings enabled and CUDA enabled if you have a GPU). I would suggest trying the [OXPY_Jupyter example](https://github.com/lorenzo-rovigatti/oxDNA/blob/master/examples/OXPY_Jupyter/literate_sim.ipynb)
 
-# Description of files here for OxDNA Analysis tool(OAT):
+# Feature_Analysis
+Notebook for feature analysis of oxDNA simulation results. 
+1. The Google Colaboratory first installs oxDNA & oxDNA Analysis tools, then loads up trajectory, topology, and input file of the sequence in the mounted google drive directory, and generates nucleotide pairs through a modification of [duplex_finder.py](https://github.com/lorenzo-rovigatti/oxDNA/blob/master/analysis/src/oxDNA_analysis_tools/duplex_finder.py)
+2. The features obtained from the simulation results are: **Sequence Length**, **Average of % dsDNA**, **Average of % ssDNA**, **Standard Deviation % dsDNA**, **Standard Deviation % ssDNA**, 	**# of dsDNA fragments**, **Standard Deviation of # dsDNA fragments**, **Relative Percentage Abundance of dsDNA/Sequence Length**.
 
-1. Run [duplexfinder](https://lorenzo-rovigatti.github.io/oxDNA/oat/cli.html#duplex-finder) from the OAT command line. 
-2. It uses a trajectory file called: CO1_v11_traj.dat and an input file for input simulation conditions called input_run.
-3. The .top file gives the topology of the structure and how many nucleotide it has in. 
-
-The output from duplex_finder is *newduplex.tsv* which we use for analysis. 
+3. The nucleotide pairs are transformed into a dataframe, and features are calculated for the given sequence simulation, alongwith recording the time for generating the pairs, and for pair analysis. 
